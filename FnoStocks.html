@@ -1,53 +1,35 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="AutoComplete/AutoComplete.js"></script>
+<script src="StockTable/Table.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.3.js" />
+
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js">
+</script>
 <!DOCTYPE html>
 <html>
 
+<head>
+    <link rel="stylesheet" href="AutoComplete/styles.css">
+</head>
+
 <body>
+
     <div>
-        <p style="text-align: left; float: left;">Select a stock from the drop down to fetch delivery report: </p>
-        <select style="text-align: right; display: inline;" class=" stock-name-control " id='stock_names' name='fno_stock_name' onChange="getStockDetails() "></select>
+        <div class="autocomplete" style="width:300px;">
+            <input id="stock_names" type="text" name="fno_stock_name" placeholder="Enter the stock name">
+        </div>
     </div>
-
-    <script>
-        $(document).ready(function() {
-
-            var list1 = document.getElementById('stock_names');
-            list1.options[0] = new Option('--Select--', '');
-            list1.options[1] = new Option('Axis Bank', 'symbol=AxisBank&segmentLink=3&symbolCount=1&series=EQ&dateRange=1month&fromDate=&toDate=&dataType=PRICEVOLUMEDELIVERABLE');
-            // list1.options[2] = new Option('Bandhan Bank',         'BANDHANBNK');
-            // list1.options[3] = new Option('Bank of Baroda',         'BANKBARODA');
-            // list1.options[4] = new Option('Federal Bank',         'FEDERALBNK');
-            // list1.options[5] = new Option('Hdfc Bank',         'HDFCBANK');
-            list1.options[6] = new Option('Icici Bank', 'symbol=ICICIBANK&segmentLink=3&symbolCount=2&series=EQ&dateRange=1month&fromDate=&toDate=&dataType=PRICEVOLUMEDELIVERABLE');
-            // list1.options[7] = new Option('Idfc First Bank',         'IDFCFIRSTB');
-            // list1.options[8] = new Option('Indus Ind Bank',         'INDUSINDBK');
-            // list1.options[9] = new Option('Kotak Bank',         'KOTAKBANK');
-            // list1.options[10] = new Option('Pnb',         'PNB');
-            // list1.options[11] = new Option('Rbl Bank',         'RBLBANK');
-            // list1.options[12] = new Option('Sbi',         'SBIN');
-            // list1.options[13] = new Option('Igl',         'IGL');
-
-        });
-
-        function getStockDetails() {
-            var list1 = document.getElementById('stock_names');
-            var selectedStock = list1.options[list1.selectedIndex].value;
+    <p id="show_table_container"></p>
 
 
+    <script type="text/javascript">
+        var myVar = "Hello"
 
-            fetch("https://www1.nseindia.com/products/dynaContent/common/productsSymbolMapping.jsp?symbol=AxisBank&segmentLink=3&symbolCount=1&series=EQ&dateRange=1month&fromDate=&toDate=&dataType=PRICEVOLUMEDELIVERABLE", {
-                    method: 'GET',
-                    credentials: 'same-origin',
-                    mode: 'no-cors'
-                })
-                .then((resp) => resp.json())
-                .then(function(data) {
-                    console.log(data);
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
+        function checkScope() {
+            var myVar = "HI";
+            document.write(myVar);
         }
+        checkScope()
     </script>
 
 </body>
